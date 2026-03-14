@@ -12,11 +12,11 @@ const Footer = () => (
           </span>
         </div>
         <div className="flex items-center gap-6">
-          <a href="mailto:hello@sanfrancleaners.com" className="inline-flex items-center gap-1.5 text-sm text-[rgba(255,255,255,0.7)] hover:text-primary-foreground transition-colors">
-            <Mail className="h-4 w-4" /> hello@sanfrancleaners.com
+          <a href="mailto:sanfrancleaners@gmail.com" className="inline-flex items-center gap-1.5 text-sm text-[rgba(255,255,255,0.7)] hover:text-primary-foreground transition-colors">
+            <Mail className="h-4 w-4" /> sanfrancleaners@gmail.com
           </a>
-          <a href="tel:+14155551234" className="inline-flex items-center gap-1.5 text-sm text-[rgba(255,255,255,0.7)] hover:text-primary-foreground transition-colors">
-            <Phone className="h-4 w-4" /> (415) 555-1234
+          <a href="tel:+14155909677" className="inline-flex items-center gap-1.5 text-sm text-[rgba(255,255,255,0.7)] hover:text-primary-foreground transition-colors">
+            <Phone className="h-4 w-4" /> (415) 590-9677
           </a>
         </div>
       </div>
