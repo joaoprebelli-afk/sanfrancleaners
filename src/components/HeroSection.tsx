@@ -18,8 +18,8 @@ const HeroSection = () => (
             <a href="#contact" className="inline-flex items-center justify-center px-7 py-3.5 bg-orange text-accent-foreground font-bold rounded-lg text-base shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_1px_2px_rgba(0,0,0,0.08),0_4px_12px_rgba(0,0,0,0.08)] hover:brightness-110 active:scale-[0.98] transition-all">
               Get Your Free Quote
             </a>
-            <a href="tel:+14155551234" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-primary/20 text-primary font-semibold rounded-lg text-base hover:bg-muted transition-colors active:scale-[0.98]">
-              <Phone className="h-4 w-4" /> Call Now
+            <a href="tel:+14155909677" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-primary/20 text-primary font-semibold rounded-lg text-base hover:bg-muted transition-colors active:scale-[0.98]">
+              <Phone className="h-4 w-4" /> (415) 590-9677
             </a>
           </div>
           {/* Trust bar */}
