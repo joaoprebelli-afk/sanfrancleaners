@@ -6,12 +6,25 @@ import {
 } from "@/components/ui/accordion";
 
 const faqs = [
-  { q: "How long does the service take?", a: "Most garages are completed in one day (4–8 hours)." },
-  { q: "Do you install shelves or pegboards?", a: "No. We focus on decluttering and organizing what you have. No installations or construction involved." },
-  { q: "What happens to my junk?", a: "We haul it to licensed transfer stations. Usable items go to Goodwill or Salvation Army. Metals are recycled." },
-  { q: "Is the $699 price all-inclusive?", a: "The service is $699. Disposal fees may apply for extra-large volumes — always discussed before we start." },
-  { q: "What areas do you serve?", a: "The full San Francisco Bay Area — San Francisco, Oakland, Berkeley, Daly City, South San Francisco, San Mateo, and surrounding areas." },
+  { q: "How much does garage cleanout cost in San Francisco?", a: "SanFranCleaners offers a complete garage reset for $699 (launch price). Regular price is $899. Disposal fees may apply for extra-large volumes." },
+  { q: "What areas do you serve in the Bay Area?", a: "We serve San Francisco, Oakland, Berkeley, Daly City, South San Francisco, San Mateo, and surrounding Bay Area cities." },
+  { q: "How long does a garage cleanout take?", a: "Most garages are completed in one day (4–8 hours) with our professional team." },
+  { q: "Do you install shelves or wall systems?", a: "No. We focus exclusively on decluttering, junk removal, and organization. No installations or construction." },
+  { q: "What happens to the junk you remove?", a: "We haul to licensed Bay Area transfer stations. Usable items go to Goodwill or Salvation Army. Metals are recycled responsibly." },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.a,
+    },
+  })),
+};
 
 const FaqSection = () => (
   <section id="faq" className="bg-background">
@@ -34,6 +47,10 @@ const FaqSection = () => (
         </Accordion>
       </div>
     </div>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+    />
   </section>
 );
 
