@@ -28,8 +28,8 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
-          <a href="tel:+14155551234" className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange">
-            <Phone className="h-4 w-4" /> (415) 555-1234
+          <a href="tel:+14155909677" className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange">
+            <Phone className="h-4 w-4" /> (415) 590-9677
           </a>
         </div>
 
