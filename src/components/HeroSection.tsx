@@ -35,7 +35,7 @@ const HeroSection = () => (
         {/* Image — 2 cols */}
         <div className="lg:col-span-2">
           <div className="rounded-xl overflow-hidden shadow-[0_1px_2px_rgba(0,0,0,0.05),0_4px_12px_rgba(0,0,0,0.05)] border border-border aspect-[4/3]">
-            <img src={heroImage} alt="Beautifully organized garage after SanFranCleaners reset" className="w-full h-full object-cover" loading="eager" />
+            <img src={heroImage} alt="Garage cleanout service San Francisco Bay Area" className="w-full h-full object-cover" loading="eager" />
           </div>
         </div>
       </div>
