@@ -46,12 +46,24 @@ const ComparisonSlider = ({ beforeAlt, afterAlt, beforeSrc, afterSrc }: Comparis
       onPointerUp={onPointerUp}
     >
       {/* After (full) */}
-      <div className="absolute inset-0 bg-teal/10 flex items-center justify-center">
-        <span className="text-muted-foreground text-sm font-medium" aria-label={afterAlt}>After — Photo Coming Soon</span>
+      <div className="absolute inset-0">
+        {afterSrc ? (
+          <img src={afterSrc} alt={afterAlt} className="absolute inset-0 w-full h-full object-cover" />
+        ) : (
+          <div className="absolute inset-0 bg-teal/10 flex items-center justify-center">
+            <span className="text-muted-foreground text-sm font-medium">After — Photo Coming Soon</span>
+          </div>
+        )}
       </div>
       {/* Before (clipped) */}
-      <div className="absolute inset-0 bg-muted flex items-center justify-center" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
-        <span className="text-muted-foreground text-sm font-medium" aria-label={beforeAlt}>Before — Photo Coming Soon</span>
+      <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
+        {beforeSrc ? (
+          <img src={beforeSrc} alt={beforeAlt} className="absolute inset-0 w-full h-full object-cover" />
+        ) : (
+          <div className="absolute inset-0 bg-muted flex items-center justify-center">
+            <span className="text-muted-foreground text-sm font-medium">Before — Photo Coming Soon</span>
+          </div>
+        )}
       </div>
       {/* Handle */}
       <div className="absolute top-0 bottom-0 w-1 bg-orange -translate-x-1/2 z-10" style={{ left: `${pos}%` }}>
