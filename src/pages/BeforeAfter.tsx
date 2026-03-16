@@ -85,6 +85,8 @@ const projects = [
     title: "Mission District, San Francisco",
     beforeAlt: "Cluttered garage before cleanout Mission District San Francisco",
     afterAlt: "Organized garage after SanFranCleaners reset Mission District SF",
+    beforeSrc: "/images/before.jpg",
+    afterSrc: "/images/after.jpg",
     caption: "Full garage reset — 6 hours. Cardboard boxes removed, HDX bins installed, tools and sports equipment organized.",
   },
   {
