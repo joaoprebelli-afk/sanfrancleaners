@@ -7,9 +7,11 @@ import Footer from "@/components/Footer";
 interface ComparisonSliderProps {
   beforeAlt: string;
   afterAlt: string;
+  beforeSrc?: string;
+  afterSrc?: string;
 }
 
-const ComparisonSlider = ({ beforeAlt, afterAlt }: ComparisonSliderProps) => {
+const ComparisonSlider = ({ beforeAlt, afterAlt, beforeSrc, afterSrc }: ComparisonSliderProps) => {
   const [pos, setPos] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
@@ -44,12 +46,24 @@ const ComparisonSlider = ({ beforeAlt, afterAlt }: ComparisonSliderProps) => {
       onPointerUp={onPointerUp}
     >
       {/* After (full) */}
-      <div className="absolute inset-0 bg-teal/10 flex items-center justify-center">
-        <span className="text-muted-foreground text-sm font-medium" aria-label={afterAlt}>After — Photo Coming Soon</span>
+      <div className="absolute inset-0">
+        {afterSrc ? (
+          <img src={afterSrc} alt={afterAlt} className="absolute inset-0 w-full h-full object-cover" />
+        ) : (
+          <div className="absolute inset-0 bg-teal/10 flex items-center justify-center">
+            <span className="text-muted-foreground text-sm font-medium">After — Photo Coming Soon</span>
+          </div>
+        )}
       </div>
       {/* Before (clipped) */}
-      <div className="absolute inset-0 bg-muted flex items-center justify-center" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
-        <span className="text-muted-foreground text-sm font-medium" aria-label={beforeAlt}>Before — Photo Coming Soon</span>
+      <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
+        {beforeSrc ? (
+          <img src={beforeSrc} alt={beforeAlt} className="absolute inset-0 w-full h-full object-cover" />
+        ) : (
+          <div className="absolute inset-0 bg-muted flex items-center justify-center">
+            <span className="text-muted-foreground text-sm font-medium">Before — Photo Coming Soon</span>
+          </div>
+        )}
       </div>
       {/* Handle */}
       <div className="absolute top-0 bottom-0 w-1 bg-orange -translate-x-1/2 z-10" style={{ left: `${pos}%` }}>
@@ -71,6 +85,8 @@ const projects = [
     title: "Mission District, San Francisco",
     beforeAlt: "Cluttered garage before cleanout Mission District San Francisco",
     afterAlt: "Organized garage after SanFranCleaners reset Mission District SF",
+    beforeSrc: "/images/before.jpg",
+    afterSrc: "/images/after.jpg",
     caption: "Full garage reset — 6 hours. Cardboard boxes removed, HDX bins installed, tools and sports equipment organized.",
   },
   {
@@ -126,7 +142,7 @@ const BeforeAfter = () => (
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tighter text-primary mb-6">
               {p.title}
             </h2>
-            <ComparisonSlider beforeAlt={p.beforeAlt} afterAlt={p.afterAlt} />
+            <ComparisonSlider beforeAlt={p.beforeAlt} afterAlt={p.afterAlt} beforeSrc={p.beforeSrc} afterSrc={p.afterSrc} />
             <p className="text-sm text-muted-foreground mt-4 italic leading-relaxed">{p.caption}</p>
           </div>
         </div>
