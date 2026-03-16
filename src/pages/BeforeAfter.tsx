@@ -142,7 +142,7 @@ const BeforeAfter = () => (
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tighter text-primary mb-6">
               {p.title}
             </h2>
-            <ComparisonSlider beforeAlt={p.beforeAlt} afterAlt={p.afterAlt} />
+            <ComparisonSlider beforeAlt={p.beforeAlt} afterAlt={p.afterAlt} beforeSrc={p.beforeSrc} afterSrc={p.afterSrc} />
             <p className="text-sm text-muted-foreground mt-4 italic leading-relaxed">{p.caption}</p>
           </div>
         </div>
