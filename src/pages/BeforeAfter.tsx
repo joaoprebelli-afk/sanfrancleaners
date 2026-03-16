@@ -11,7 +11,7 @@ interface ComparisonSliderProps {
   afterSrc?: string;
 }
 
-const ComparisonSlider = ({ beforeAlt, afterAlt }: ComparisonSliderProps) => {
+const ComparisonSlider = ({ beforeAlt, afterAlt, beforeSrc, afterSrc }: ComparisonSliderProps) => {
   const [pos, setPos] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
