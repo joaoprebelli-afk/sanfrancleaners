@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 interface ComparisonSliderProps {
   beforeAlt: string;
   afterAlt: string;
+  beforeSrc?: string;
+  afterSrc?: string;
 }
 
 const ComparisonSlider = ({ beforeAlt, afterAlt }: ComparisonSliderProps) => {
