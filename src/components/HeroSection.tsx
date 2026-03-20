@@ -1,5 +1,62 @@
 import { Phone } from "lucide-react";
-import heroImage from "@/assets/hero-garage.jpg";
+import { useState, useRef, useCallback } from "react";
+
+const HeroComparisonSlider = () => {
+  const [pos, setPos] = useState(50);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const dragging = useRef(false);
+
+  const updatePos = useCallback((clientX: number) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+    setPos((x / rect.width) * 100);
+  }, []);
+
+  const onPointerDown = useCallback((e: React.PointerEvent) => {
+    dragging.current = true;
+    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+    updatePos(e.clientX);
+  }, [updatePos]);
+
+  const onPointerMove = useCallback((e: React.PointerEvent) => {
+    if (dragging.current) updatePos(e.clientX);
+  }, [updatePos]);
+
+  const onPointerUp = useCallback(() => {
+    dragging.current = false;
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-border shadow-sm select-none touch-none cursor-col-resize"
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+    >
+      {/* After (full) */}
+      <div className="absolute inset-0">
+        <img src="/images/after.jpg" alt="Organized garage after SanFranCleaners reset" className="absolute inset-0 w-full h-full object-cover" />
+      </div>
+      {/* Before (clipped) */}
+      <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
+        <img src="/images/before.jpg" alt="Cluttered garage before cleanout" className="absolute inset-0 w-full h-full object-cover" />
+      </div>
+      {/* Handle */}
+      <div className="absolute top-0 bottom-0 w-1 bg-orange -translate-x-1/2 z-10" style={{ left: `${pos}%` }}>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-orange rounded-full flex items-center justify-center shadow-lg">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-accent-foreground">
+            <path d="M5 3L2 8L5 13M11 3L14 8L11 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+      </div>
+      {/* Labels */}
+      <span className="absolute top-3 left-3 bg-primary/80 text-primary-foreground text-xs font-bold px-2.5 py-1 rounded-full z-20">Before</span>
+      <span className="absolute top-3 right-3 bg-teal/80 text-primary-foreground text-xs font-bold px-2.5 py-1 rounded-full z-20">After</span>
+    </div>
+  );
+};
 
 const HeroSection = () => (
   <section className="relative pt-16">
@@ -32,11 +89,9 @@ const HeroSection = () => (
           </div>
         </div>
 
-        {/* Image — 2 cols */}
+        {/* Before/After Slider — 2 cols */}
         <div className="lg:col-span-2">
-          <div className="rounded-xl overflow-hidden shadow-[0_1px_2px_rgba(0,0,0,0.05),0_4px_12px_rgba(0,0,0,0.05)] border border-border aspect-[4/3]">
-            <img src={heroImage} alt="Garage cleanout service San Francisco Bay Area" className="w-full h-full object-cover" loading="eager" />
-          </div>
+          <HeroComparisonSlider />
         </div>
       </div>
     </div>
