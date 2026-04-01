@@ -89,24 +89,6 @@ const projects = [
     afterSrc: "/images/after.jpg",
     caption: "Full garage reset — 6 hours. Cardboard boxes removed, HDX bins installed, tools and sports equipment organized.",
   },
-  {
-    title: "Oakland Hills",
-    beforeAlt: "Messy garage before junk removal Oakland Bay Area",
-    afterAlt: "Clean organized garage after reset service Oakland",
-    caption: "Estate cleanout + garage reset — 8 hours. 2 truckloads of junk removed, remainder fully organized.",
-  },
-  {
-    title: "Berkeley",
-    beforeAlt: "Garage declutter before Berkeley California",
-    afterAlt: "Garage organization after service Berkeley Bay Area",
-    caption: "Family garage reset — 5 hours. Sports equipment, tools, and seasonal items sorted into labeled bins.",
-  },
-  {
-    title: "Daly City",
-    beforeAlt: "Before garage cleanout Daly City San Francisco Bay Area",
-    afterAlt: "After garage organization Daly City",
-    caption: "Pre-sale garage cleanout — 4 hours. Home listed the following week.",
-  },
 ];
 
 const BeforeAfter = () => (
