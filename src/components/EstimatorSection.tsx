@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Minus, Plus } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { submitLead } from "@/lib/submitLead";
 import {
   PRICING,
   estimateCleaning,
@@ -83,16 +83,17 @@ const EstimatorSection = () => {
     const data = new FormData(e.currentTarget);
     const note = ((data.get("note") as string) || "").trim();
 
-    const { error: dbError } = await supabase.from("leads").insert({
+    const { ok } = await submitLead({
       name: data.get("name") as string,
       phone: data.get("phone") as string,
       email: ((data.get("email") as string) || "").trim(),
       timeline: data.get("timeline") as string,
       message: `[ESTIMATE $${total}] ${summary} | ZIP ${zip || "not given"}${note ? ` | ${note}` : ""}`,
+      source: "estimator",
     });
 
     setLoading(false);
-    if (dbError) {
+    if (!ok) {
       setError("We couldn't save your request. Please text us at (415) 590-9677.");
       return;
     }

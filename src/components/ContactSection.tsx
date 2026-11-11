@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { submitLead } from "@/lib/submitLead";
 
 const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -14,17 +14,18 @@ const ContactSection = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    const { error: dbError } = await supabase.from("leads").insert({
+    const { ok } = await submitLead({
       name: formData.get("name") as string,
       phone: formData.get("phone") as string,
       email: formData.get("email") as string,
       message: (formData.get("message") as string) || null,
       timeline: formData.get("timeline") as string,
+      source: "contact",
     });
 
     setLoading(false);
 
-    if (dbError) {
+    if (!ok) {
       setError("Something went wrong. Please try again or call us directly.");
       return;
     }
