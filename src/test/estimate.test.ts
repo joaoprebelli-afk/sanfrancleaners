@@ -7,8 +7,8 @@ describe("estimateJunk", () => {
     expect(estimateJunk({ service: "garage", extras: {} })).toBe(699);
   });
   it("adds large-item extras on truck services", () => {
-    expect(estimateJunk({ service: "bigitem", extras: { fridge: 1 } })).toBe(299);
-    expect(estimateJunk({ service: "haul", extras: { mattress: 2, tire: 1 } })).toBe(464);
+    expect(estimateJunk({ service: "bigitem", extras: { fridge: 1 } })).toBe(349);
+    expect(estimateJunk({ service: "haul", extras: { mattress: 2, tire: 1 } })).toBe(479);
   });
   it("ignores extras on services without a truck", () => {
     expect(estimateJunk({ service: "carload", extras: { fridge: 3 } })).toBe(149);

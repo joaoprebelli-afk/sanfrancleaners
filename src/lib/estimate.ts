@@ -13,10 +13,10 @@ export const PRICING = {
   },
   // Large items that cost extra to dispose of. Only offered on services that use a truck.
   junkExtras: {
-    fridge: { label: "Refrigerator or freezer", price: 50 },
-    appliance: { label: "Washer, dryer, stove or dishwasher", price: 30 },
-    mattress: { label: "Mattress or box spring", price: 20 },
-    tire: { label: "Tire", price: 25 },
+    fridge: { label: "Refrigerator or freezer", price: 100 },
+    appliance: { label: "Washer, dryer, stove or dishwasher", price: 50 },
+    mattress: { label: "Mattress or box spring", price: 25 },
+    tire: { label: "Tire", price: 30 },
   },
   cleaning: {
     base: { studio: 140, two: 170, three: 220 },

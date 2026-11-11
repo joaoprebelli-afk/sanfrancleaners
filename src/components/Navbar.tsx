@@ -31,7 +31,7 @@ const Navbar = () => {
           </span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-5">
+        <div className="hidden lg:flex items-center gap-5">
           {anchorLinks.map((l) => (
             <a key={l.href} href={isHome ? l.href : `/${l.href}`} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
               {l.label}
@@ -47,13 +47,13 @@ const Navbar = () => {
           </a>
         </div>
 
-        <button onClick={() => setOpen(!open)} className="md:hidden p-2 text-primary" aria-label="Toggle menu">
+        <button onClick={() => setOpen(!open)} className="lg:hidden p-2 text-primary" aria-label="Toggle menu">
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden bg-background border-b border-border px-4 pb-4 space-y-3">
+        <div className="lg:hidden bg-background border-b border-border px-4 pb-4 space-y-3">
           {anchorLinks.map((l) => (
             <a key={l.href} href={isHome ? l.href : `/${l.href}`} onClick={() => setOpen(false)} className="block text-sm font-medium text-muted-foreground hover:text-primary py-1">
               {l.label}
