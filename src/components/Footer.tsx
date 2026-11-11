@@ -25,6 +25,7 @@ const Footer = () => (
         <div className="space-y-2">
           <h4 className="text-xs font-bold uppercase tracking-widest text-[rgba(255,255,255,0.5)]">Pages</h4>
           <div className="flex flex-wrap gap-x-5 gap-y-1">
+            <Link to="/estimate" className="text-sm text-[rgba(255,255,255,0.7)] hover:text-primary-foreground transition-colors">Instant Estimate</Link>
             <Link to="/san-francisco" className="text-sm text-[rgba(255,255,255,0.7)] hover:text-primary-foreground transition-colors">San Francisco</Link>
             <Link to="/before-after" className="text-sm text-[rgba(255,255,255,0.7)] hover:text-primary-foreground transition-colors">Before & After</Link>
           </div>

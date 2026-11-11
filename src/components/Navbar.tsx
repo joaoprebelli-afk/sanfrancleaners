@@ -16,6 +16,7 @@ const Navbar = () => {
   ];
 
   const pageLinks = [
+    { label: "Instant Estimate", to: "/estimate" },
     { label: "San Francisco", to: "/san-francisco" },
     { label: "Before & After", to: "/before-after" },
   ];
