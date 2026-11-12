@@ -3,8 +3,8 @@ import { PRICING } from "@/lib/estimate";
 import { SITE } from "@/lib/site";
 
 const pricing: QA = {
-  q: "How do you set the price?",
-  a: "The price you see on this page is the price for that service. Send a few photos with your request and we confirm the final number by text before anything is booked. No hourly billing and no surprise fees on the day.",
+  q: "Is the price on the site final?",
+  a: "No, it's an estimate. The final price depends on your city, how many items there are, what the job needs and how many miles we drive. We look at your request and photos, then send the exact price by text or email. Nothing is booked until you say yes, and that's the price you pay. No hourly billing and no surprise fees on the day.",
 };
 
 const area: QA = {
@@ -69,7 +69,7 @@ const cleaningDeep: QA = {
 
 const contact: QA = {
   q: "Can I just text you?",
-  a: `Yes. Text photos to ${SITE.phoneDisplay} and we'll reply with a price.`,
+  a: `Yes. Text photos to ${SITE.phoneDisplay} and we'll reply with your final price.`,
 };
 
 export const HOME_FAQ = [pricing, area, donation, stuff, shelves, bins, hazardous, home, payment, contact];

@@ -9,7 +9,7 @@ import { PRICING } from "@/lib/estimate";
 
 const DESC = `House cleaning in San Francisco and the Bay Area from $${PRICING.cleaning.base.studio}. Standard, deep and move-out cleans with bathrooms included. Weekly service saves ${
   PRICING.cleaning.frequency.weekly * 100
-}%. See your price instantly.`;
+}%. Get an instant estimate.`;
 
 const HouseCleaning = () => (
   <Layout>
@@ -24,14 +24,14 @@ const HouseCleaning = () => (
       ]}
     />
     <Hero
-      title="House cleaning with the price up front"
-      lead="Standard, deep and move-out cleans across the Bay Area. Choose your home size and the kind of clean, and the price is right there. Bathrooms are always included."
+      title="House cleaning with an instant estimate"
+      lead="Standard, deep and move-out cleans across the Bay Area. Choose your home size and the kind of clean, and the estimate is right there. Bathrooms are always included."
       facts={[`From $${PRICING.cleaning.base.studio} for a studio`, `Every 2 weeks saves ${PRICING.cleaning.frequency.biweekly * 100}%, weekly saves ${PRICING.cleaning.frequency.weekly * 100}%`, "Anywhere in the Bay Area"]}
       showPhoto={false}
       smsBody="Hi! I'd like a house cleaning price."
       smsLabel="Text us"
     />
-    <Estimator title="House cleaning prices" initialMode="cleaning" lockMode intro="Prices per visit. Tell us anything unusual in the notes and we'll confirm before booking." />
+    <Estimator title="House cleaning estimate" initialMode="cleaning" lockMode intro="Estimates per visit, anywhere in the Bay Area." />
     <Steps />
     <Areas cleaning />
     <Faq items={CLEANING_FAQ} title="House cleaning questions" />

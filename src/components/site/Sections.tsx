@@ -42,8 +42,8 @@ export const serviceSchema = (name: string, description: string, path: string, l
 });
 
 const STEPS = [
-  { t: "Pick a service and send it", d: "Choose what you need above. The price updates as you go. Add a few photos if you have them." },
-  { t: "We confirm by text", d: "We look at your photos and text you the final price and a time. Nothing is booked until you say yes." },
+  { t: "Pick a service and send it", d: "Choose what you need above and see your estimate. Add a few photos if you have them." },
+  { t: "We send your final price", d: "We look at your photos, the address and what the job needs, then send the exact price and a time by text or email. Nothing is booked until you say yes." },
   { t: "We show up and handle it", d: "Two of us, with a truck when the job needs one. We haul, donate what's usable and organize what stays." },
 ];
 
@@ -103,7 +103,7 @@ export const GarageIncluded = () => (
             </li>
           ))}
         </ul>
-        <p className="mt-3 px-1 text-[15px] text-concrete">Every add-on shows up in your price before you book.</p>
+        <p className="mt-3 px-1 text-[15px] text-concrete">Every add-on shows up in your estimate before you send it.</p>
       </div>
     </div>
   </section>

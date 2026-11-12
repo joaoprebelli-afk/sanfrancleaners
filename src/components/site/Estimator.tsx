@@ -120,10 +120,14 @@ const Estimator = ({ initialMode = "junk", initialService = null, lockMode = fal
     <section id="price" className="band bg-fog">
       <div className="wrap">
         <div className="max-w-2xl">
-          <h2 className="heading text-[30px] text-slate sm:text-[40px]">{title ?? "Pick what you need. See the price."}</h2>
+          <h2 className="heading text-[30px] text-slate sm:text-[40px]">{title ?? "Pick what you need. See your estimate."}</h2>
           <p className="prose-copy mt-3">
             {intro ??
-              "Prices are for San Francisco and the Peninsula. We confirm the final number from a few photos before anything is booked."}
+              "Prices for San Francisco and the Peninsula."}
+          </p>
+          <p className="mt-4 rounded-[14px] bg-white px-4 py-3 text-[15px] leading-snug text-slate ring-1 ring-line">
+            <span className="font-semibold">These are estimates.</span> The final price depends on your city, how much there is,
+            what the job needs and how far we drive. We send you the exact price by text or email before anything is booked.
           </p>
         </div>
 
@@ -223,12 +227,12 @@ const Estimator = ({ initialMode = "junk", initialService = null, lockMode = fal
                           checked={install}
                           onChange={setInstall}
                           label="Shelving or wall-mount install"
-                          hint="Priced from your photos, added to the quote"
+                          hint="Priced from your photos, added to your final price"
                         />
                       )}
                     </div>
                     <p className="mt-2 px-1 text-[14px] text-concrete">
-                      Bins aren't included in the price. Skip them if you have your own; we'll reuse what you've got.
+                      Bins aren't included in the estimate. Skip them if you have your own; we'll reuse what you've got.
                     </p>
                   </>
                 )}
@@ -283,7 +287,7 @@ const Estimator = ({ initialMode = "junk", initialService = null, lockMode = fal
               className="field max-w-[11rem]"
             />
             {zone === "peninsula" && mode === "junk" && (
-              <p className="mt-2 px-1 text-[14px] text-concrete">You're in our Peninsula area. We'll confirm the price after checking the drive.</p>
+              <p className="mt-2 px-1 text-[14px] text-concrete">You're in our Peninsula area. The drive is factored into your final price.</p>
             )}
             {zone === "outside" && mode === "junk" && (
               <p className="mt-2 px-1 text-[14px] text-concrete">
@@ -295,18 +299,18 @@ const Estimator = ({ initialMode = "junk", initialService = null, lockMode = fal
           {/* Desktop summary */}
           <aside className="hidden lg:sticky lg:top-24 lg:block">
             <div className="rounded-[20px] bg-slate p-6 text-white">
-              <p className="text-[15px] text-white/70">{ready ? serviceLabel : "Your price"}</p>
-              <p className="price mt-1 text-[56px] leading-none" aria-live="polite">
-                {ready ? `$${total}` : "—"}
+              <p className="text-[15px] text-white/70">{ready ? serviceLabel : "Your estimate"}</p>
+              <p className={`price mt-1 leading-none ${ready ? "text-[56px]" : "text-[40px] text-white/80"}`} aria-live="polite">
+                {ready ? `$${total}` : "From $99"}
                 {perVisit && <span className="ml-1 text-[17px] font-semibold tracking-normal text-white/70">per visit</span>}
               </p>
               {(!ready || summary !== serviceLabel) && (
                 <p className="mt-3 text-[15px] leading-snug text-white/80">{ready ? summary : "Pick a service on the left."}</p>
               )}
-              <button type="button" disabled={!ready} onClick={openSheet} className="btn-signal mt-6 w-full">
-                Book this price
+              <button type="button" disabled={!ready} onClick={openSheet} className="btn-signal mt-6 w-full disabled:bg-white/15 disabled:text-white/60 disabled:opacity-100">
+                Get my final price
               </button>
-              <p className="mt-3 text-[13px] text-white/60">Final price confirmed from your photos. No payment now.</p>
+              <p className="mt-3 text-[13px] text-white/60">Estimate only. We send the final price by text or email. No payment now.</p>
             </div>
           </aside>
         </div>
@@ -322,7 +326,7 @@ const Estimator = ({ initialMode = "junk", initialService = null, lockMode = fal
                   ${total}
                   {perVisit && <span className="ml-1 text-[14px] font-semibold tracking-normal text-concrete">/visit</span>}
                 </p>
-                <p className="mt-1 truncate text-[14px] text-concrete">{serviceLabel}</p>
+                <p className="mt-1 truncate text-[14px] text-concrete">Estimate, {serviceLabel}</p>
               </>
             ) : (
               <p className="text-[15px] leading-snug text-slate">
@@ -333,7 +337,7 @@ const Estimator = ({ initialMode = "junk", initialService = null, lockMode = fal
           </div>
           {ready ? (
             <button type="button" onClick={openSheet} className="btn-signal flex-shrink-0">
-              Book
+              Get price
             </button>
           ) : (
             <a href="#price" className="btn-signal flex-shrink-0">

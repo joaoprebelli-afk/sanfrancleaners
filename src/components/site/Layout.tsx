@@ -96,7 +96,7 @@ const Footer = () => (
           ))}
           <li>
             <Link to="/estimate" className="hover:text-white">
-              Instant price
+              Instant estimate
             </Link>
           </li>
         </ul>

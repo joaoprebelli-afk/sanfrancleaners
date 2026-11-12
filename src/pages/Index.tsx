@@ -12,14 +12,14 @@ const Index = () => (
   <Layout>
     <Seo
       title="Junk Removal & Garage Cleanout in San Francisco | SanFranCleaners"
-      description="Junk removal from $99 and full garage resets for $699 in San Francisco and the Peninsula. See your price in seconds, send photos, and we confirm by text. House cleaning too."
+      description="Junk removal from $99 and full garage resets for $699 in San Francisco and the Peninsula. Get an instant estimate, send photos, and we send the final price by text or email. House cleaning too."
       path="/"
       schema={[businessSchema, faqSchema(HOME_FAQ)]}
     />
     <Hero
       title="Junk out. Garage back."
-      lead="Junk removal, garage resets and house cleaning in San Francisco and the Peninsula. See your price right here, no call needed."
-      facts={["Price shown before you book", "Usable items go to local donation centers", "Locally owned in San Francisco"]}
+      lead="Junk removal, garage resets and house cleaning in San Francisco and the Peninsula. Get an instant estimate right here, no call needed."
+      facts={["Instant estimate, final price before you book", "Usable items go to local donation centers", "Locally owned in San Francisco"]}
     />
     <Estimator />
     <Steps />

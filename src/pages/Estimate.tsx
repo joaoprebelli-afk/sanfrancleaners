@@ -8,12 +8,12 @@ import { Steps } from "@/components/site/Sections";
 const Estimate = () => (
   <Layout>
     <Seo
-      title="Instant Price | SanFranCleaners"
-      description="See your junk removal, garage reset or house cleaning price in seconds. San Francisco and the Peninsula."
+      title="Instant Estimate | SanFranCleaners"
+      description="Get an instant estimate for junk removal, a garage reset or house cleaning. San Francisco and the Peninsula."
       path="/estimate"
       noindex
     />
-    <Estimator title="See your price in 30 seconds" />
+    <Estimator title="Your estimate in 30 seconds" />
     <section className="band">
       <div className="wrap max-w-3xl">
         <BeforeAfter />

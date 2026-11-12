@@ -28,7 +28,7 @@ const GarageCleanout = () => (
       facts={["$699 for the full reset", "Bins and shelving only if you want them", "SF and the Peninsula"]}
       smsBody="Hi! I'd like a garage reset. Here are some photos:"
     />
-    <Estimator title="Price your garage" initialMode="junk" initialService="garage" lockMode />
+    <Estimator title="Estimate your garage" initialMode="junk" initialService="garage" lockMode />
     <GarageIncluded />
     <Steps />
     <Areas />

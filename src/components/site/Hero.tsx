@@ -36,7 +36,7 @@ const Hero = ({ title, lead, facts = [], showPhoto = true, smsBody, smsLabel = "
       <div className="mt-6 [grid-area:actions] lg:self-start">
         <div className="flex flex-col gap-3 min-[400px]:flex-row">
           <a href="#price" className="btn-signal">
-            See your price
+            See your estimate
           </a>
           <a href={smsHref(smsBody)} className="btn-ghost">
             <MessageCircle className="h-5 w-5" /> {smsLabel}

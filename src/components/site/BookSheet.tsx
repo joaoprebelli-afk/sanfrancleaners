@@ -83,11 +83,11 @@ const BookSheet = ({ open, onOpenChange, total, serviceLabel, summary, zip, perV
           <div className="flex items-start justify-between gap-4 px-5 pb-3 pt-3">
             <div className="min-w-0">
               <Drawer.Title className="heading text-[22px] text-slate">
-                {sentTo ? "Request sent" : "Book this price"}
+                {sentTo ? "Request sent" : "Get your final price"}
               </Drawer.Title>
               {!sentTo && (
                 <p className="mt-1 text-[15px] text-concrete">
-                  {serviceLabel}, <span className="price text-slate">${total}</span>
+                  {serviceLabel}, estimate <span className="price text-slate">${total}</span>
                   {perVisit && " per visit"}
                 </p>
               )}
@@ -104,8 +104,8 @@ const BookSheet = ({ open, onOpenChange, total, serviceLabel, summary, zip, perV
                   <Check className="h-7 w-7 text-slate" strokeWidth={3} />
                 </span>
                 <p className="mt-4 text-[17px] text-slate">
-                  We'll text you at <span className="font-semibold">{sentTo}</span> to confirm the final price. Nothing is booked
-                  or charged until you say yes.
+                  We'll send your final price by text to <span className="font-semibold">{sentTo}</span>, or by email if you gave
+                  one. Nothing is booked or charged until you say yes.
                 </p>
                 <p className="mt-3 text-[15px] text-concrete">
                   Want it faster?{" "}
@@ -158,7 +158,7 @@ const BookSheet = ({ open, onOpenChange, total, serviceLabel, summary, zip, perV
 
                 <div className="pt-2">
                   <p className="mb-2 text-[15px] font-semibold text-slate">
-                    Photos <span className="font-normal text-concrete">(optional, helps us confirm the price)</span>
+                    Photos <span className="font-normal text-concrete">(optional, makes your final price more accurate)</span>
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {previews.map((src, i) => (
@@ -212,7 +212,7 @@ const BookSheet = ({ open, onOpenChange, total, serviceLabel, summary, zip, perV
                 <button type="submit" disabled={loading} className="btn-signal w-full">
                   {loading ? (photos.length ? "Uploading photos…" : "Sending…") : "Send request"}
                 </button>
-                <p className="pb-2 text-center text-[13px] text-concrete">No payment now. We confirm the price with you by text first.</p>
+                <p className="pb-2 text-center text-[13px] text-concrete">No payment now. We send the final price by text or email first.</p>
               </form>
             )}
           </div>
