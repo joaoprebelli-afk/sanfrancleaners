@@ -32,6 +32,11 @@ const bins: QA = {
   a: `No, bins are optional so you only pay for what you need. We can bring HDX bins: black with a yellow lid for $${PRICING.bins.black.price} each or clear for $${PRICING.bins.clear.price} each. If you already have bins, we'll use yours.`,
 };
 
+const donation: QA = {
+  q: "What fits in the $99 Donation Run?",
+  a: "Small donatable things in bags or boxes: clothes, shoes, books, toys, kitchenware, small decor. Everything has to fit in one car. Furniture, like a dresser, wardrobe or sofa, goes under Big Item Pickup or Haul-Only.",
+};
+
 const home: QA = {
   q: "Do I need to be home?",
   a: "For a Garage Reset, yes, at least at the start so we can walk through what stays and what goes. For pickups, you can leave the items outside or in the garage and send us the gate or door code.",
@@ -67,7 +72,7 @@ const contact: QA = {
   a: `Yes. Text photos to ${SITE.phoneDisplay} and we'll reply with a price.`,
 };
 
-export const HOME_FAQ = [pricing, area, stuff, shelves, bins, hazardous, home, payment, contact];
-export const JUNK_FAQ = [pricing, stuff, hazardous, home, area, payment];
+export const HOME_FAQ = [pricing, area, donation, stuff, shelves, bins, hazardous, home, payment, contact];
+export const JUNK_FAQ = [pricing, donation, stuff, hazardous, home, area, payment];
 export const GARAGE_FAQ = [pricing, howLong, shelves, bins, stuff, home, area];
 export const CLEANING_FAQ = [cleaningIncluded, cleaningDeep, cleaningRecurring, pricing, payment, contact];

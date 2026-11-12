@@ -12,7 +12,12 @@ export const PRICING = {
     bigitem: { label: "Big Item Pickup", price: 249, blurb: "One or two large items, like a sofa, mattress or appliance." },
     double: { label: "Double Car Load", price: 249, blurb: "Two cars full, in a single trip." },
     carload: { label: "Car Load", price: 149, blurb: "Bags, boxes, chairs, small furniture, TVs. About one hatchback full." },
-    donation: { label: "Donation Run", price: 99, blurb: "Donatable items only. We drop them at a local charity and send you the receipt." },
+    donation: {
+      label: "Donation Run",
+      price: 99,
+      blurb:
+        "Clothes, shoes, books, toys and other small donatable things, bagged or boxed, up to one car load. No furniture. We drop them at a local charity and send you the receipt.",
+    },
     organize: { label: "Organize-Only", price: 299, blurb: "Two people, two hours, sorting and organizing. Nothing hauled away." },
   },
   // Large items that cost extra to dispose of. Only on services that use a truck.
