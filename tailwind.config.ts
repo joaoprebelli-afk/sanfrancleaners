@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['"Public Sans"', 'system-ui', 'sans-serif'],
+        sans: ['"Archivo Variable"', "-apple-system", "BlinkMacSystemFont", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -50,10 +50,11 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        navy: "hsl(var(--navy))",
-        orange: "hsl(var(--orange))",
-        teal: "hsl(var(--teal))",
-        "surface-muted": "hsl(var(--surface-muted))",
+        slate: "hsl(var(--slate))",
+        fog: "hsl(var(--fog))",
+        signal: "hsl(var(--signal))",
+        concrete: "hsl(var(--concrete))",
+        line: "hsl(var(--line))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

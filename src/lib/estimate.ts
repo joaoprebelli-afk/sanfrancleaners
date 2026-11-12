@@ -3,46 +3,69 @@
 
 export const PRICING = {
   junk: {
-    donation: { label: "Donation Run", price: 99, blurb: "Donatable items only. We pick up, drop off at a local charity and send you the receipt." },
+    garage: {
+      label: "Garage Reset",
+      price: 699,
+      blurb: "Two-person crew and truck for the day. We haul the junk, donate what's usable and organize what stays.",
+    },
+    haul: { label: "Haul-Only", price: 399, blurb: "Up to half a truck, carried out of the house. No sorting or organizing." },
+    bigitem: { label: "Big Item Pickup", price: 249, blurb: "One or two large items, like a sofa, mattress or appliance." },
+    double: { label: "Double Car Load", price: 249, blurb: "Two cars full, in a single trip." },
     carload: { label: "Car Load", price: 149, blurb: "Bags, boxes, chairs, small furniture, TVs. About one hatchback full." },
-    double: { label: "Double Car Load", price: 249, blurb: "Two cars full in a single trip." },
-    bigitem: { label: "Big Item Pickup", price: 249, blurb: "One or two large items: sofa, mattress, appliance." },
-    haul: { label: "Haul-Only", price: 399, blurb: "Up to half a truck. We carry it out of the house. No sorting or organizing." },
-    garage: { label: "Garage Reset", price: 699, blurb: "Two-person crew and truck. We haul the junk, donate what's usable and organize what stays." },
-    organize: { label: "Organize-Only", price: 299, blurb: "Two people for two hours sorting and organizing. Nothing hauled away." },
+    donation: { label: "Donation Run", price: 99, blurb: "Donatable items only. We drop them at a local charity and send you the receipt." },
+    organize: { label: "Organize-Only", price: 299, blurb: "Two people, two hours, sorting and organizing. Nothing hauled away." },
   },
-  // Large items that cost extra to dispose of. Only offered on services that use a truck.
+  // Large items that cost extra to dispose of. Only on services that use a truck.
   junkExtras: {
     fridge: { label: "Refrigerator or freezer", price: 100 },
     appliance: { label: "Washer, dryer, stove or dishwasher", price: 50 },
     mattress: { label: "Mattress or box spring", price: 25 },
     tire: { label: "Tire", price: 30 },
   },
+  // Storage bins we buy and bring. Home Depot cost + sales tax + 50%, rounded.
+  bins: {
+    black: { label: "HDX 27 gal, black with yellow lid", price: 16 },
+    clear: { label: "HDX clear bin with lid", price: 25 },
+  },
   cleaning: {
     base: { studio: 140, two: 170, three: 220 },
     type: { standard: 1, deep: 1.5, moveout: 1.8 },
     extras: { oven: 30, fridge: 50 },
-    frequency: { once: 0, biweekly: 0.1, weekly: 0.15 },
+    frequency: { once: 0, biweekly: 0.1, weekly: 0.2 },
   },
 } as const;
 
 export type JunkService = keyof typeof PRICING.junk;
 export type JunkExtra = keyof typeof PRICING.junkExtras;
+export type BinType = keyof typeof PRICING.bins;
 export type CleaningSize = keyof typeof PRICING.cleaning.base;
 export type CleaningType = keyof typeof PRICING.cleaning.type;
 export type CleaningFrequency = keyof typeof PRICING.cleaning.frequency;
 
 export const TRUCK_SERVICES: JunkService[] = ["bigitem", "haul", "garage"];
+export const BIN_SERVICES: JunkService[] = ["garage", "organize"];
 
 export const usesTruck = (service: JunkService) => TRUCK_SERVICES.includes(service);
+export const takesBins = (service: JunkService) => BIN_SERVICES.includes(service);
 
-export type JunkInput = { service: JunkService; extras: Partial<Record<JunkExtra, number>> };
+const count = (n: number | undefined) => Math.max(0, Math.floor(n ?? 0));
 
-export function estimateJunk({ service, extras }: JunkInput): number {
+export type JunkInput = {
+  service: JunkService;
+  extras: Partial<Record<JunkExtra, number>>;
+  bins?: Partial<Record<BinType, number>>;
+};
+
+export function estimateJunk({ service, extras, bins = {} }: JunkInput): number {
   let total = PRICING.junk[service].price;
   if (usesTruck(service)) {
     for (const key of Object.keys(PRICING.junkExtras) as JunkExtra[]) {
-      total += Math.max(0, Math.floor(extras[key] ?? 0)) * PRICING.junkExtras[key].price;
+      total += count(extras[key]) * PRICING.junkExtras[key].price;
+    }
+  }
+  if (takesBins(service)) {
+    for (const key of Object.keys(PRICING.bins) as BinType[]) {
+      total += count(bins[key]) * PRICING.bins[key].price;
     }
   }
   return total;
